@@ -1,0 +1,41 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+import BaseHead from "../components/BaseHead.astro";
+import DrawerContent from "../components/DrawerContent.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = "/placeholder-social.jpg",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <slot name="head" />
+  </head>
+  <body class="drawer">
+    <input id="main-nav" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col relative">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
+    <div class="drawer-side">
+      <label for="main-nav" class="drawer-overlay"></label>
+      <ul class="menu px-1 py-2 w-80 bg-base-100">
+        <DrawerContent />
+      </ul>
+    </div>
+  </body>
+</html>

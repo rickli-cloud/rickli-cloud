@@ -1,0 +1,16 @@
+---
+import { ROUTES } from "../consts";
+
+const { pathname } = Astro.url;
+const isActive = (r: RegExp) => r.test(pathname);
+---
+
+{
+  ROUTES.map((i) => (
+    <li class="m-1">
+      <a href={i.href} class:list={[{ active: isActive(i.regex) }]}>
+        {i.name}
+      </a>
+    </li>
+  ))
+}
