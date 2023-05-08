@@ -6,5 +6,7 @@ COPY ./dist ./static
 WORKDIR /docker-entrypoint.d/
 COPY ./unit.json ./init.json
 
+EXPOSE 8080
+
 WORKDIR /
 
