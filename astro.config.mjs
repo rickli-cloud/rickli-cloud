@@ -24,7 +24,7 @@ export default defineConfig({
       config: {
         backend: {
           name: "github",
-          repo: "LucaRickli/rickli.cloud",
+          repo: "LucaRickli/www.rickli.cloud",
           branch: "main",
           base_url: "https://github-oauth.rickli.cloud",
         },
