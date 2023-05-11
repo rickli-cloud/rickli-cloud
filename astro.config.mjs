@@ -3,7 +3,6 @@ import mdx from "@astrojs/mdx";
 import NetlifyCMS from "astro-netlify-cms";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import alpinejs from "@astrojs/alpinejs";
 import serviceWorker from "astrojs-service-worker";
 import compress from "astro-compress";
 const site = "https://www.rickli.cloud";
@@ -14,7 +13,6 @@ export default defineConfig({
   integrations: [
     mdx(),
     tailwind(),
-    alpinejs(),
     serviceWorker(),
     compress({}),
     sitemap({
