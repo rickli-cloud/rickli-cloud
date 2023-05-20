@@ -5,11 +5,12 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import serviceWorker from "astrojs-service-worker";
 import compress from "astro-compress";
-const site = "https://www.rickli.cloud";
+
+import { SITE } from "./src/consts";
 
 // https://astro.build/config
 export default defineConfig({
-  site,
+  site: SITE,
   integrations: [
     mdx(),
     tailwind(),
@@ -19,6 +20,7 @@ export default defineConfig({
       filter: (page) => !/\/admin(\/.*)?$/.test(page),
     }),
     NetlifyCMS({
+      disableIdentityWidgetInjection: true,
       config: {
         backend: {
           name: "github",
@@ -26,10 +28,10 @@ export default defineConfig({
           branch: "main",
           base_url: "https://github-oauth.rickli.cloud",
         },
-        site_url: site,
+        site_url: SITE,
         media_folder: "public/assets",
         public_folder: "/assets",
-        logo_url: `${site}/logo.svg`,
+        logo_url: `${SITE}/logo.svg`,
         locale: "de",
         collections: [
           {
