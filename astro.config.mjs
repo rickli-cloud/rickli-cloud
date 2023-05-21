@@ -106,8 +106,8 @@ export default defineConfig({
               {
                 name: "pubDate",
                 widget: "datetime",
-                format: "DD MMM YYYY",
-                date_format: "DD MMM YYYY",
+                format: "MMM DD YYYY",
+                date_format: "MMM DD YYYY",
                 time_format: false,
                 label: "Publish Date",
               },
