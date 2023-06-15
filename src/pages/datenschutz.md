@@ -285,3 +285,5 @@ Die Reichweitenmessung (auch als Web Analytics bezeichnet) dient der Auswertung 
 #### Verarbeitung:
 
 "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten, sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen.
+
+test123.
