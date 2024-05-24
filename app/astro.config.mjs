@@ -23,7 +23,7 @@ export default defineConfig({
         {
           type: "dir",
           name: "Blog",
-          path: "src/content/blog",
+          path: "app/src/content/blog",
           actions: {
             create: true,
             delete: true,
@@ -42,8 +42,8 @@ export default defineConfig({
             delete: true,
           },
           files: [
-            { path: "src/pages/datenschutz.md" },
-            { path: "src/pages/impressum.md" },
+            { path: "app/src/pages/datenschutz.md" },
+            { path: "app/src/pages/impressum.md" },
           ],
         },
       ],
