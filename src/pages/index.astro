@@ -1,0 +1,102 @@
+---
+import "$lib/styles/app.css";
+
+import SoftwareProjects from "$lib/components/SoftwareProjects.svelte";
+
+import { GITHUB_ORG } from "$lib/consts";
+
+import Layout from "$lib/layouts/Base.astro";
+
+interface Repo {
+  author: string;
+  name: string;
+  description: string;
+  language: string;
+  stars: number;
+  forks: number;
+}
+
+async function getPinnedRepos(): Promise<Repo[] | undefined> {
+  const response = await fetch(
+    `https://pinned.berrysauce.dev/get/${GITHUB_ORG}`,
+    {
+      method: "GET",
+    }
+  );
+
+  if (!response.ok) {
+    console.error("Error fetching pinned repositories:", response.statusText);
+    return;
+  }
+
+  return await response.json();
+}
+
+const repos = await getPinnedRepos();
+---
+
+<Layout description="Empowering the World through Open Source">
+  <main>
+    <div class="py-32 px-5 space-y-3.5">
+      <h3
+        class="text-center text-4xl font-extrabold tracking-tight lg:text-5xl"
+      >
+        Empowering the World through Open Source
+      </h3>
+
+      <p
+        class="text-center text-muted-foreground max-w-[1024px] mx-auto px-8 lg:px-0"
+      >
+        Open source software drives innovation, fosters collaboration, and
+        creates endless opportunities for individuals and businesses alike. By
+        breaking down barriers and promoting transparency, open source unlocks
+        the potential for everyone to learn, contribute, and grow.
+      </p>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      class="fill-muted !-mb-0.5 w-full h-52 min-[2048px]:h-96"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill-opacity="1"
+        d="M0,192L24,202.7C48,213,96,235,144,245.3C192,256,240,256,288,234.7C336,213,384,171,432,128C480,85,528,43,576,58.7C624,75,672,149,720,165.3C768,181,816,139,864,128C912,117,960,139,1008,170.7C1056,203,1104,245,1152,250.7C1200,256,1248,224,1296,186.7C1344,149,1392,107,1416,85.3L1440,64L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"
+        data-darkreader-inline-fill=""></path>
+    </svg>
+
+    <div class="pb-32 pt-16 px-5 bg-muted text-muted-foreground">
+      <h4 class="text-3xl font-semibold text-center mb-12">
+        Software Projects
+      </h4>
+
+      <SoftwareProjects {repos} />
+
+      <div class="text-center mt-6">
+        <a
+          href=`https://github.com/orgs/${GITHUB_ORG}/repositories`
+          class="text-sm hover:underline"
+          target="_blank"
+        >
+          more
+        </a>
+      </div>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      class="fill-muted !-mt-0.5 w-full h-52 min-[2048px]:h-96"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill-opacity="1"
+        d="M0,224L24,208C48,192,96,160,144,176C192,192,240,256,288,272C336,288,384,256,432,213.3C480,171,528,117,576,101.3C624,85,672,107,720,138.7C768,171,816,213,864,197.3C912,181,960,107,1008,117.3C1056,128,1104,224,1152,240C1200,256,1248,192,1296,149.3C1344,107,1392,85,1416,74.7L1440,64L1440,0L1416,0C1392,0,1344,0,1296,0C1248,0,1200,0,1152,0C1104,0,1056,0,1008,0C960,0,912,0,864,0C816,0,768,0,720,0C672,0,624,0,576,0C528,0,480,0,432,0C384,0,336,0,288,0C240,0,192,0,144,0C96,0,48,0,24,0L0,0Z"
+        style="--darkreader-inline-fill: var(--darkreader-background-0099ff, #007acc);"
+        data-darkreader-inline-fill=""></path>
+    </svg>
+
+    <div class="h-48"></div>
+  </main>
+</Layout>

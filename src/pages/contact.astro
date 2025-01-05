@@ -1,0 +1,43 @@
+---
+import Layout from "$lib/layouts/Base.astro";
+
+import { Textarea } from "$lib/components/ui/textarea";
+import { Button } from "$lib/components/ui/button/";
+import { Label } from "$lib/components/ui/label";
+import { Input } from "$lib/components/ui/input";
+
+// import ContactForm from "$lib/components/ContactForm.svelte";
+---
+
+<Layout description="Contact">
+  <main class="px-8 py-6 max-w-screen-2xl mx-auto">
+    <div class="prose">
+      <h1>Contact</h1>
+    </div>
+
+    <form id="contact-form" class="space-y-6">
+      <div class="space-y-2">
+        <Label for="subject" class="star-note">Title</Label>
+        <Input name="subject" id="subject" required />
+      </div>
+
+      <div class="space-y-2">
+        <Label for="body" class="star-note">Message</Label>
+        <Textarea name="body" id="body" class="h-64" required />
+      </div>
+
+      <div class="flex gap-1.5 justify-end items-center">
+        <Button variant="outline" class="w-24" type="submit">Submit</Button>
+      </div>
+    </form>
+    <!-- <ContactForm id="contact-form" /> -->
+  </main>
+</Layout>
+
+<script is:inline>
+  document.getElementById("contact-form").addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    const data = new FormData(ev.target);
+    window.location.href = `mailto:info@rickli.cloud?subject=${data.get("subject")}&body=${data.get("body")}`;
+  });
+</script>

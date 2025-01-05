@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: LucaRickli/www.rickli.cloud
+  branch: main
+  base_url: https://github-oauth.rickli.cloud
+site_url: rickli.cloud
+media_folder: public/assets
+public_folder: /assets
+logo_url: wappen.svg
+locale: de
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: legal
+        label: Legal
+        file: src/pages/legal.md
+        fields:
+          - name: layout
+            label: Layout
+            widget: string
+          - name: description
+            label: Description
+            widget: string
+      - name: about
+        label: About
+        file: src/pages/about.md
+        fields:
+          - name: layout
+            label: Layout
+            widget: string
+          - name: description
+            label: Description
+            widget: string
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    delete: true
+    preview_path: /blog/{{slug}}
+    fields:
+      - name: title
+        widget: string
+        label: Post Title
+      - name: description
+        widget: string
+        label: Description
+      - name: pubDate
+        widget: datetime
+        format: MMM DD YYYY
+        date_format: MMM DD YYYY
+        time_format: false
+        label: Publish Date
+      - name: heroImage
+        widget: string
+        label: Hero image
+        required: false
+      - name: body
+        widget: markdown
+        label: Post Body

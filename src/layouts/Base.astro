@@ -1,0 +1,30 @@
+---
+import "$lib/styles/app.css";
+
+import BaseHead from "$lib/components/BaseHead.astro";
+import Header from "$lib/components/Header.astro";
+import Footer from "$lib/components/Footer.astro";
+
+import { SITE_TITLE } from "$lib/consts";
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} {description} />
+  </head>
+
+  <body>
+    <Header />
+
+    <slot />
+
+    <Footer />
+  </body>
+</html>
