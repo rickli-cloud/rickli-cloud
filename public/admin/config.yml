@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: LucaRickli/www.rickli.cloud
   branch: main
-  base_url: https://github-oauth.rickli.cloud
+  repo: LucaRickli/www.rickli.cloud
+  base_url: https://wwww.rickli.cloud
+  auth_endpoint: /api/auth
 site_url: rickli.cloud
 media_folder: public/assets
 public_folder: /assets
