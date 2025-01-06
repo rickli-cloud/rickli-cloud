@@ -22,10 +22,6 @@ main {
   .prose {
     @apply max-w-screen-2xl mx-auto;
 
-    & > p:has(+ :is(h1, h2, h3, h4, h5, h6)):first-child {
-      @apply text-muted-foreground text-xl;
-    }
-
     & > *:first-child {
       @apply !mt-0;
     }

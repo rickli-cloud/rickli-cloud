@@ -6,7 +6,7 @@ import tailwindcssTypography from "@tailwindcss/typography";
 const config = {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  safelist: ["dark"],
+  safelist: ["dark", "frame-content"],
   theme: {
     container: {
       center: true,

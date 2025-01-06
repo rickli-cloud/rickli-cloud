@@ -1,0 +1,78 @@
+.scrolltrack-minimal {
+  scrollbar-color: #2a2a2b transparent;
+  scrollbar-width: thin;
+}
+.scrolltrack-minimal::-webkit-scrollbar-track {
+  border-width: 1px;
+  background-color: transparent;
+}
+
+.frame-content > div > div > div {
+  & h1 {
+    @apply mt-8 mb-6 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  & h2 {
+    @apply mt-7 mb-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0;
+  }
+  & h3 {
+    @apply mt-6 mb-4 scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  & h4 {
+    @apply mt-5 mb-3 scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  & h5 {
+    @apply mt-4 mb-2 scroll-m-20 text-lg font-semibold tracking-tight;
+  }
+  & h6 {
+    @apply mt-3 mb-1 scroll-m-20 font-semibold tracking-tight;
+  }
+  & p {
+    @apply leading-7 [&:not(:first-child)]:mt-3;
+  }
+  & blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+  & table {
+    @apply w-full;
+    & tr {
+      @apply even:bg-muted m-0 border-t p-0;
+    }
+    & th,
+    td {
+      @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+    }
+    & th {
+      @apply font-bold;
+    }
+  }
+  & ul {
+    @apply ml-6 list-disc [&>li]:mt-2;
+  }
+  & ol {
+    @apply ml-6 list-decimal [&>li]:mt-2;
+  }
+  & code {
+    @apply font-mono text-sm font-semibold;
+  }
+  & pre {
+    @apply bg-muted relative rounded px-3 py-2 overflow-x-scroll scrolltrack-minimal;
+  }
+  & img {
+    @apply mx-auto w-full;
+  }
+  & > ul,
+  & > ol,
+  & > table,
+  & > pre {
+    @apply mt-4 mb-6;
+  }
+  & section.footnotes {
+    @apply mt-8 text-muted-foreground;
+  }
+  & hr {
+    @apply my-6;
+  }
+  & a {
+    @apply underline;
+  }
+}

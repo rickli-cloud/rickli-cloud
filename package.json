@@ -1,12 +1,13 @@
 {
-  "name": "",
+  "name": "rickli-cloud",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:cms:style": "tailwind -m -i src/styles/cms.pcss -o public/admin/preview-style.css"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.3",
