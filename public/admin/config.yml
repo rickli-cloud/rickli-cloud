@@ -4,9 +4,9 @@ backend:
   repo: LucaRickli/www.rickli.cloud
   base_url: https://www.rickli.cloud
   auth_endpoint: /api/auth
-site_url: rickli.cloud
-media_folder: public/assets
-public_folder: /assets
+site_url: https://www.rickli.cloud
+media_folder: public
+public_folder: /
 logo_url: wappen.svg
 locale: de
 collections:
@@ -23,6 +23,9 @@ collections:
           - name: description
             label: Description
             widget: string
+          - name: body
+            widget: markdown
+            label: Body
       - name: about
         label: About
         file: src/pages/about.md
@@ -33,6 +36,9 @@ collections:
           - name: description
             label: Description
             widget: string
+          - name: body
+            widget: markdown
+            label: Body
   - name: blog
     label: Blog Posts
     label_singular: Blog Post
@@ -59,4 +65,4 @@ collections:
         required: false
       - name: body
         widget: markdown
-        label: Post Body
+        label: Body
