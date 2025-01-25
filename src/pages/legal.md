@@ -5,6 +5,8 @@ description: Legal Disclosure
 
 # Legal Disclosure
 
+## Contents
+
 ## Owner and Operator of the Website
 
 rickli-cloud  
